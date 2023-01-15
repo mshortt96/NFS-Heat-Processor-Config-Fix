@@ -30,7 +30,7 @@ internal class FileConfig
     {
         if (FileExists())
         {
-            File.Move($"{Location}\\{FileName}{FileExtension}", $"{BackupFileName}{FileExtension}", true);
+            File.Move($"{Location}\\{FileName}{FileExtension}", $"{Location}\\{BackupFileName}{FileExtension}", true);
         }
     }
 
