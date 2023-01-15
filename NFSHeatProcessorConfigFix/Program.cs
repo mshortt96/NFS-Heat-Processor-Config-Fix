@@ -17,19 +17,26 @@ internal class Program
             Console.WriteLine("=============================");
             Helpers.Console.WriteEmptyLine();
 
-            TerminateIfNotWindows();
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                string workingDirectory = DetermineFileCreationLocation();
 
-            string workingDirectory = DetermineFileCreationLocation();
+                Console.WriteLine($@"Press any key to create your ""{FileConfig.FileName}{FileConfig.FileExtension}"" file. If one already exists, it will be backed up.");
+                Console.ReadKey();
+                Helpers.Console.WriteEmptyLine(2);
 
-            Console.WriteLine($@"Press any key to create your ""{FileConfig.FileName}{FileConfig.FileExtension}"" file. If one already exists, it will be backed up.");
-            Console.ReadKey();
-            Helpers.Console.WriteEmptyLine(2);
+                CreateFile(workingDirectory);
 
-            CreateFile(workingDirectory);
+                Helpers.Console.WriteEmptyLine();
+                Console.WriteLine("Press any key to close.");
+                Console.ReadKey();
+            }
 
-            Helpers.Console.WriteEmptyLine();
-            Console.WriteLine("Press any key to close.");
-            Console.ReadKey();
+            else
+            {
+                Console.WriteLine("Sorry, currently this application can only be run on a Windows machine.");
+                Console.ReadKey();
+            }
         }
 
         catch(Exception ex)
@@ -38,15 +45,7 @@ internal class Program
 
             Console.Clear();
             Console.WriteLine("An unexpected error occurred.");
-        }
-    }
-
-    private static void TerminateIfNotWindows()
-    {
-        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-        {
-            Console.WriteLine("Sorry, currently this application can only be run on a Windows machine.");
-            Environment.Exit(0);
+            Console.ReadKey();
         }
     }
 
