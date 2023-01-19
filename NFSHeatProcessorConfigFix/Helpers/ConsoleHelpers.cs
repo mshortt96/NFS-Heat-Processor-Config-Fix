@@ -4,9 +4,9 @@ namespace NFSHeatProcessorConfigFix;
 
 internal static partial class Helpers
 {
-    public static class Console
+    internal static class Console
     {
-        public static bool WaitOnConfirmation()
+        internal static bool WaitOnConfirmation()
         {
             X.WriteLine(@"Press ""Y"" for Yes or ""N"" for No.");
 
@@ -21,7 +21,7 @@ internal static partial class Helpers
             return keyPress.Key == ConsoleKey.Y;
         }
 
-        public static void WriteEmptyLine(uint total = 1)
+        internal static void WriteEmptyLine(uint total = 1)
         {
             if(total == 0)
             {

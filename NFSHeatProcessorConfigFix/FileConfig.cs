@@ -8,7 +8,7 @@ internal class FileConfig
     internal const string BackupFileName = $"{FileName} (backup)";
     internal const string FileExtension = ".cfg";
 
-    public string Location { get; }
+    internal string Location { get; }
 
     internal FileConfig(string location = null)
     {

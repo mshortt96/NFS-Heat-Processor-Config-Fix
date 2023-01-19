@@ -4,7 +4,7 @@ namespace NFSHeatProcessorConfigFix;
 
 internal static class Logger
 {
-    public static void CreateErrorLog(Exception exception)
+    internal static void CreateErrorLog(Exception exception)
     {
         using (Process app = Process.GetCurrentProcess())
         {
