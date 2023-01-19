@@ -3,6 +3,7 @@ Need For Speed Heat's PC port is notorious for being extremely CPU-intensive, of
 
 This automated console tool for Windows achieves the former. It will determine your CPU's physical and logical cores and generate a corresponding "user.cfg" file. Before generation it will scan for your NFS Heat installation directory and ultimately place the file there; if an installation can't be found it will simply create the file in the same location as the tool's EXE. Should an existing file be found, it will be backed up with the name "user (backup).cfg".
 
+![](https://i.ibb.co/KqZHNTr/Demo.gif)
 
 ## Technical Notes
 - The EXE's size is a known issue. The program relies on Windows Management Instrumentation, which breaks when the assembly is trimmed:
